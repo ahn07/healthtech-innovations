@@ -17,25 +17,17 @@ Clone the Repository:
 git clone https://github.com/ahn07/healthtech-innovations.git
 cd healthtech-innovations
 
-
 Open the Project:
 
-The project consists of a single index.html file.
+healthtech-innovations/
+├── index.html       # Main HTML file
+├── styles.css      # All CSS styles
+├── scripts.js      # All JavaScript logic
+└── README.md       # Updated documentation
+
 Open the project folder in a code editor like Visual Studio Code (recommended for Live Server).
 
-
-Dependencies:
-
-No local dependencies are required. The site uses the following external CDNs:
-Font Awesome 6.4.2 for icons.
-SweetAlert2 11 for success notifications.
-jQuery 3.6.0 for DOM manipulation.
-jQuery Validation Plugin 1.19.5 for form validation.
-
-
 Ensure an internet connection to load these resources.
-
-
 
 Using Live Server
 To preview the website locally, use the Live Server extension in Visual Studio Code:
@@ -51,6 +43,16 @@ Start Live Server:
 Open index.html in VS Code.
 Right-click the file and select "Open with Live Server", or click the "Go Live" button in the VS Code status bar.
 The site will open in your default browser at http://127.0.0.1:5500 (default port).
+
+Dependencies:
+
+No local dependencies are required. The site uses the following external CDNs:
+Font Awesome 6.4.2 for icons.
+SweetAlert2 11 for success notifications.
+jQuery 3.6.0 for DOM manipulation.
+jQuery Validation Plugin 1.19.5 for form validation.
+
+
 
 
 Verify Functionality:
@@ -96,15 +98,14 @@ Strengths: Comprehensive meta tags, Open Graph/Twitter Card tags, and schema mar
 
 
 
-Performance: 100/100
+Performance: 97/100
 Strengths: Lightweight page with optimized CSS. CDNs are cached globally.
 
 
 
-Accessibility: 96/100
+Accessibility: 100/100
 Strengths: Semantic HTML, ARIA attributes (role, aria-label), and high-contrast text. Forms have clear labels and error messages.
-Issues: Decorative Font Awesome icons lack aria-hidden="true".
-Recommendations: Add aria-hidden="true" to decorative icons.
+
 
 
 Best Practices: 100/100
