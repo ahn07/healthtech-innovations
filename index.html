@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthTech Innovations provides cutting-edge healthcare technology solutions including IVF software, telemedicine, and hospital information systems.">
+    <meta name="keywords" content="healthcare technology, IVF software, telemedicine solutions, hospital information system, mobile app development">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="HealthTech Innovations">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="HealthTech Innovations - Empowering Healthcare">
+    <meta property="og:description" content="Transforming healthcare with innovative technology solutions.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop">
+    <meta property="og:url" content="https://www.healthtechinnovations.com">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HealthTech Innovations - Empowering Healthcare">
+    <meta name="twitter:description" content="Transforming healthcare with innovative technology solutions.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop">
+    <title>HealthTech Innovations</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- jQuery and jQuery Validation Plugin CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #007bff, #00c4b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .cta {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(45deg, #007bff, #00c4b4);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .hero .cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Products Section */
+        .products {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card i {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+        }
+
+        .product-card:hover i {
+            color: #00c4b4;
+        }
+
+        /* About Us Section */
+        .about {
+            background: #f4f7fa;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #007bff, #00c4b4);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content h3 {
+            margin: 1.5rem 0 1rem;
+        }
+
+        .core-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .value-item i {
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact & Enquiry Sections */
+        .contact, .enquiry {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .contact h2, .enquiry h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact h2::after, .enquiry h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #007bff, #00c4b4);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6fffa 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input, textarea, select {
+            padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea {
+            padding: 0.75rem;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.75rem;
+            background: linear-gradient(45deg, #007bff, #00c4b4);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Validation Styles */
+        .error {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            display: block;
+            animation: fadeInError 0.3s ease-in;
+        }
+
+        @keyframes fadeInError {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        input.error, textarea.error, select.error {
+            border-color: #dc3545;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links a, .social a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .social a {
+            font-size: 1.5rem;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .social a:hover {
+            transform: scale(1.2);
+            color: #00c4b4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="logo" role="img" aria-label="HealthTech Innovations Logo">HealthTech</div>
+            <button class="hamburger" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-menu" role="navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" role="region" aria-label="Hero Section">
+        <div class="hero-content">
+            <h1>Empowering Healthcare Through Innovation</h1>
+            <a href="#products" class="cta">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products" role="region" aria-label="Products Section">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <i class="fas fa-baby" aria-hidden="true"></i>
+                <h3>IVF Software</h3>
+                <p>Advanced solutions for fertility clinics.</p>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-video" aria-hidden="true"></i>
+                <h3>Telemedicine Solutions</h3>
+                <p>Secure virtual consultations for patients.</p>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-hospital" aria-hidden="true"></i>
+                <h3>Hospital Information System</h3>
+                <p>Streamlined hospital management tools.</p>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                <h3>Mobile App Development</h3>
+                <p>Custom apps for healthcare providers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about" role="region" aria-label="About Us Section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>HealthTech Innovations is a pioneering force in healthcare technology, dedicated to transforming the industry through innovative solutions. Established in 2015, our company was founded with a vision to bridge the gap between cutting-edge technology and patient care, enabling healthcare providers to deliver exceptional outcomes.</p>
+            <p>Our team comprises skilled engineers, healthcare professionals, and industry experts who collaborate to create solutions tailored to the unique needs of clinics, hospitals, and patients. From IVF software to telemedicine platforms, we are committed to making healthcare more accessible, efficient, and impactful.</p>
+            <h3>Our Mission</h3>
+            <p>Our mission is to empower healthcare providers with intuitive, reliable, and innovative tools that enhance patient care and streamline operations. We strive to foster a healthier world by leveraging technology to improve access and outcomes for all.</p>
+            <h3>Our Core Values</h3>
+            <div class="core-values">
+                <div class="value-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Innovation:</strong> We push the boundaries of technology to create transformative healthcare solutions.
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <strong>Integrity:</strong> We uphold the highest standards of ethics and transparency in all our endeavors.
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-heart"></i>
+                    <strong>Impact:</strong> We are driven by a passion to improve lives through better healthcare access and outcomes.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" role="region" aria-label="Contact Section">
+        <h2>Contact Us</h2>
+        <form id="contact-form" role="form" aria-label="Contact Form">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="contact-name" name="name" placeholder="Name" required aria-required="true">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="contact-email" name="email" placeholder="Email" required aria-required="true">
+            </div>
+            <div class="input-group">
+                <textarea id="contact-message" name="message" placeholder="Message" required aria-required="true"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Enquiry Form Section -->
+    <section class="enquiry" role="region" aria-label="Enquiry Section">
+        <h2>Enquiry Form</h2>
+        <form id="enquiry-form" role="form" aria-label="Enquiry Form">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="enquiry-name" name="name" placeholder="Full Name" required aria-required="true">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="enquiry-email" name="email" placeholder="Email Address" required aria-required="true">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="number" id="enquiry-mobile" name="mobile" placeholder="Mobile Number" required aria-required="true">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-list"></i>
+                <select id="enquiry-product" name="product" required aria-required="true">
+                    <option value="" disabled selected>Select Product</option>
+                    <option value="IVF Software">IVF Software</option>
+                    <option value="Telemedicine Solutions">Telemedicine Solutions</option>
+                    <option value="Hospital Information System">Hospital Information System</option>
+                    <option value="Mobile App Development">Mobile App Development</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <textarea id="enquiry-message" name="message" placeholder="Message" required aria-required="true"></textarea>
+            </div>
+            <button type="submit">Submit Enquiry</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-links">
+            <a href="#" aria-label="Privacy Policy">Privacy Policy</a> | <a href="#" aria-label="Terms and Conditions">Terms & Conditions</a>
+        </div>
+        <div class="social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HealthTech Innovations",
+        "url": "https://www.healthtechinnovations.com",
+        "logo": "https://www.healthtechinnovations.com/logo.png",
+        "description": "HealthTech Innovations provides innovative healthcare technology solutions.",
+        "sameAs": [
+            "https://www.facebook.com/healthtechinnovations",
+            "https://www.x.com/healthtechinnov",
+            "https://www.linkedin.com/company/healthtechinnovations"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "HealthTech Innovations Home",
+        "url": "https://www.healthtechinnovations.com",
+        "description": "Empowering healthcare through innovative technology solutions."
+    }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default anchor behavior
+                const targetId = link.getAttribute('href').substring(1); // Get section ID (e.g., 'home')
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight; // Get header height
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close hamburger menu on mobile
+                navMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Contact Form Validation
+        $(document).ready(function() {
+            $('#contact-form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    message: {
+                        required: true,
+                        minlength: 10
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "Please enter your name.",
+                        minlength: "Name must be at least 2 characters."
+                    },
+                    email: {
+                        required: "Please enter your email.",
+                        email: "Please enter a valid email address."
+                    },
+                    message: {
+                        required: "Please enter a message.",
+                        minlength: "Message must be at least 10 characters."
+                    }
+                },
+                errorElement: 'span',
+                errorClass: 'error',
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element.closest('.input-group'));
+                },
+                submitHandler: function(form) {
+                    const name = $('#contact-name').val();
+                    const email = $('#contact-email').val();
+                    const message = $('#contact-message').val();
+
+                    // Store in localStorage
+                    const contactData = { name, email, message, timestamp: new Date().toISOString() };
+                    let contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
+                    contacts.push(contactData);
+                    localStorage.setItem('contacts', JSON.stringify(contacts));
+
+                    // Show SweetAlert2 success notification
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Data successfully stored!',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    form.reset();
+                }
+            });
+
+            // Enquiry Form Validation
+            $('#enquiry-form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    mobile: {
+                        required: true,
+                        digits: true,
+                        minlength: 10,
+                        maxlength: 10
+                    },
+                    product: {
+                        required: true
+                    },
+                    message: {
+                        required: true,
+                        minlength: 10
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "Please enter your full name.",
+                        minlength: "Name must be at least 2 characters."
+                    },
+                    email: {
+                        required: "Please enter your email.",
+                        email: "Please enter a valid email address."
+                    },
+                    mobile: {
+                        required: "Please enter your mobile number.",
+                        digits: "Mobile number must contain only digits.",
+                        minlength: "Mobile number must be 10 digits.",
+                        maxlength: "Mobile number must be 10 digits."
+                    },
+                    product: {
+                        required: "Please select a product."
+                    },
+                    message: {
+                        required: "Please enter a message.",
+                        minlength: "Message must be at least 10 characters."
+                    }
+                },
+                errorElement: 'span',
+                errorClass: 'error',
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element.closest('.input-group'));
+                },
+                submitHandler: function(form) {
+                    const name = $('#enquiry-name').val();
+                    const email = $('#enquiry-email').val();
+                    const mobile = $('#enquiry-mobile').val();
+                    const product = $('#enquiry-product').val();
+                    const message = $('#enquiry-message').val();
+
+                    // Store in localStorage
+                    const enquiryData = { name, email, mobile, product, message, timestamp: new Date().toISOString() };
+                    let enquiries = JSON.parse(localStorage.getItem('enquiries') || '[]');
+                    enquiries.push(enquiryData);
+                    localStorage.setItem('enquiries', JSON.stringify(enquiries));
+
+                    // Show SweetAlert2 success notification
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Data successfully stored!',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    form.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
